@@ -1,3 +1,4 @@
+require('./style.scss');
 import React, { Component } from 'react';
 import Layout from './Layout';
 import Counter from './Counter';
@@ -7,8 +8,9 @@ import Poop from './Poop';
 export default class App extends Component {
   render() {
     return (
-      <Layout>
+      <Layout >
         <Test />
+sdfsfsd
         <Poop />
         <Counter />
       </Layout>
