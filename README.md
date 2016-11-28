@@ -1,0 +1,6 @@
+# react-boiler-hmr-coffee
+React boilerplate with React Hot Loader 3, Express, Webpack, Coffee, cjsx, jsx, es6, and more to come...
+
+I spend to much time messing with other boilerplates...
+
+this makes no assumptions about how the app folder is structured. 
