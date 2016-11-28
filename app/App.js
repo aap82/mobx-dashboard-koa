@@ -1,19 +1,16 @@
 require('./style.scss');
 import React, { Component } from 'react';
-import Layout from './Layout';
-import Counter from './Counter';
-import Test from './Test.jsx';
+import Layout from './components/Layout';
 import Poop from './Poop';
 
-export default class App extends Component {
+class App extends Component {
   render() {
     return (
       <Layout >
-        <Test />
-sdfsfsd
         <Poop />
-        <Counter />
       </Layout>
     );
   }
 }
+
+module.exports = App;

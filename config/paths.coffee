@@ -8,7 +8,7 @@ compiled = path.join root, 'compiled'
 paths =
   root: root
   app:  app
-  client_entry: path.join app, 'index'
+  client_entry: path.join app, 'client'
   output: path.join root, 'dist'
 
 
