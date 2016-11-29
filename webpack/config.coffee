@@ -42,13 +42,13 @@ module.exports =
         include: paths.app
       }
       {
-        test: /\.cjsx?$/
-        loaders: [ 'coffee', 'cjsx' ]
+        test: /\.cjsx$/
+        loaders: [ 'babel', 'coffee-loader', 'cjsx-loader' ]
         include: paths.app
       }
       {
         test: /\.coffee?$/
-        loaders: [ 'coffee' ]
+        loaders: [ 'coffee-loader' ]
         include: paths.app
       }
       {
