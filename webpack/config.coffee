@@ -28,11 +28,11 @@ module.exports =
     }, reload: false)
   ]
 
-  resolve: {
+  resolve:
     root: paths.app
-    modulesDirectories: ['node_modules', paths.app],
+    modulesDirectories: ['node_modules', paths.app]
     extensions: ['', '.js', '.jsx', '.coffee', '.cjsx', '.css', '.scss']
-  },
+
 
   module:
     loaders: [
@@ -53,11 +53,11 @@ module.exports =
       }
       {
         test: /\.css$/,
-        loaders: ['style', 'css', 'postcss'],
+        loaders: ['style', 'css', 'postcss']
         include: paths.app
       }
       {
-        test: /\.scss$/,
+        test: /\.scss$/
         loaders: ['style', 'css', 'postcss', 'sass']
         include: paths.app
       }
