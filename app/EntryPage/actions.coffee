@@ -5,3 +5,4 @@ exports.onMount = ({app , entryPage, location}) ->
     return 'hi'
   else
     setTimeout((-> entryPage.loginRequired = yes), 1000)
+#    setTimeout((-> entryPage.redirectToReferrer = yes), 4000)

@@ -8,10 +8,13 @@ class LoginModal extends React.Component
   constructor: (props) ->
     super props
     @state =
-      username: 'Test'
+      username: 'Tessdfsft'
       password: ''
   componentDidMount: => setTimeout((=> @props.loginModal.open()), 500)
-  onUserSubmit: =>  setTimeout((=> @props.loginModal.close()), 500)
+  onUserSubmit: =>
+    setTimeout((=> @props.loginModal.close()), 500)
+    setTimeout((-> entryPage.redirectToReferrer = yes), 4000)
+
   onUserNameChange: (event) =>  @setState username: event.target.value
   onPasswordChange: (event) =>  @setState password: event.target.value
   render: ->
@@ -21,10 +24,12 @@ class LoginModal extends React.Component
         <form>
           <fieldset className="clearfix">
             <p>
-              <span className="fontawesome-user"></span><input type="text" value={@state.username} onChange={@onUserNameChange}/>
+              <span className="fontawesome-user"></span>
+              <input type="text" value={@state.username} onChange={@onUserNameChange}/>
             </p>
             <p>
-              <span className="fontawesome-lock"></span><input type="password" value={@state.password} onChange={@onPasswordChange} />
+              <span className="fontawesome-lock"></span>
+              <input type="password" value={@state.password} onChange={@onPasswordChange} />
             </p>
           </fieldset>
         </form>

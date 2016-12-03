@@ -1,28 +1,27 @@
-require('./style.scss')
-
 import { AppContainer } from 'react-hot-loader';
 import React from 'react';
 import ReactDOM from 'react-dom';
-import Root from './root';
-import { Provider } from 'mobx-react';
+import App from './app';
+import configureStore from './main-store';
+import { Provider } from 'mobx-react'
+
 const rootEl = document.getElementById('root');
 
-
-
+const stores = configureStore()
 
 ReactDOM.render(
   <AppContainer>
-    <Root  />
+    <App stores={stores}/>
   </AppContainer>,
   rootEl
 );
 
 if (module.hot) {
   module.hot.accept('./root', () => {
-    const NextRoot = require('./root').default
+    const NextRoot = require('./app').default
     ReactDOM.render(
       <AppContainer>
-        <NextRoot  />
+        <NextRoot stores={stores} />
       </AppContainer>,
       rootEl
     );

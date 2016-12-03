@@ -22,6 +22,7 @@ class EntryPage extends React.Component
             <Redirect to={{pathname: '/dashboard', state: { user: 'busty'}}} />
         else if loginRequired
           <LoginModal />
+
         else if isLoading
           <div>LOADING</div>
        }
