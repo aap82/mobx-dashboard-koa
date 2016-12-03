@@ -11,14 +11,16 @@ class LoginModal extends React.Component
       username: 'Tessdfsft'
       password: ''
   componentDidMount: => setTimeout((=> @props.loginModal.open()), 500)
-  onUserSubmit: =>
-    setTimeout((=> @props.loginModal.close()), 500)
-    setTimeout((-> entryPage.redirectToReferrer = yes), 4000)
+
+
 
   onUserNameChange: (event) =>  @setState username: event.target.value
   onPasswordChange: (event) =>  @setState password: event.target.value
   render: ->
     {isOpen} = @props.loginModal
+    console.log @props
+    submitLogin = () => @props.onLogin @state
+
     <div className={"login-container " + isOpen}>
       <div id="login">
         <form>
@@ -33,7 +35,7 @@ class LoginModal extends React.Component
             </p>
           </fieldset>
         </form>
-        <button onClick={@onUserSubmit}>Login</button>
+        <button onClick={submitLogin}>Login</button>
       </div>
     </div>
 

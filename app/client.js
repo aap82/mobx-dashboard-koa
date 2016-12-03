@@ -1,9 +1,8 @@
-import { AppContainer } from 'react-hot-loader';
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { AppContainer } from 'react-hot-loader';
 import App from './app';
-import configureStore from './main-store';
-import { Provider } from 'mobx-react'
+import configureStore from './store';
 
 const rootEl = document.getElementById('root');
 
@@ -17,7 +16,7 @@ ReactDOM.render(
 );
 
 if (module.hot) {
-  module.hot.accept('./root', () => {
+  module.hot.accept('./app', () => {
     const NextRoot = require('./app').default
     ReactDOM.render(
       <AppContainer>

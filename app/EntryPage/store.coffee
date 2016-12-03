@@ -1,20 +1,21 @@
-{extendObservable, action, transaction} = require 'mobx'
+{extendObservable, action, transaction, computed} = require 'mobx'
 Promise = require 'bluebird'
 
 class EntryPageStore
+  referrer: null
   constructor: ->
     extendObservable @, {
-      referrer: null
-      redirectToReferrer: no
-      isLoading: true
-      loginRequired: false
-      getReferrerState: action(->
-        return @referrer
+      isLoading: yes
+      loginRequired: no
+      loginCompleted: no
+      currentView: computed(->
+        if @loginCompleted
+          return 'Done'
+        if @loginRequired
+          return 'Login'
+        if @isLoading
+          return 'Loading'
       )
-      setReferrerState: action(({from = null}) ->
-        @referrer = from
-      )
-
     }
 
   loadToken: ->

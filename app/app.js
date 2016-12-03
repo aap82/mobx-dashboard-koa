@@ -12,27 +12,24 @@ import Router from 'react-router/BrowserRouter'
 import Dashboard from './Dashboard/Dashboard'
 import EntryPage from './EntryPage/EntryPage'
 
-const MatchWhenAuthorized = ({ auth, component: Component, ...rest }) => (
+
+const Redirected = props => <Redirect to={{pathname: '/', state: {from: props.location}}} />
+
+const MatchWhenAuthenticated = ({ auth, component: Component, ...rest }) => (
   <Match {...rest} render={props => (
-    auth ? (
-      <Component {...props}/>
-    ) : (
-      <Redirect to={{
-        pathname: '/',
-        state: { from: props.location }
-      }}/>
-    )
-  )}/>
-)
-const Protected = inject(
-  stores => ({ auth: stores.app.isAuthenticated })
-)(MatchWhenAuthorized)
+    auth ?
+      ( <Component {...props} /> )
+    :
+      ( <Redirected {...props} />)
+    )}
+  />
+);
 
-const Redirected = (props) => (
-  <Redirect to={{pathname: '/', state: {from: props.location}}} />
-)
+const Protected = inject( stores => ({ auth: stores.app.isAuthenticated }) )( MatchWhenAuthenticated )
 
-const App = ({stores}) => (
+
+
+const App = ({ stores }) => (
   <Provider {...stores}>
     <Router>
       <div className='main-container'>
@@ -43,6 +40,6 @@ const App = ({stores}) => (
       </div>
     </Router>
   </Provider>
-)
+);
 
 export default App;

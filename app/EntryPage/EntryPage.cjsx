@@ -9,7 +9,21 @@ LoginModal = require('../components/LoginModal').default
 
 
 class EntryPage extends React.Component
-  componentDidMount: -> actions.onMount(@props)
+  constuctor: (props) ->
+    super props
+    @state
+      referrer: null
+
+  componentDidMount: ->
+    if @props.location.state? then  @setState referrer: @props.location.state.from
+    { entryPage } = @props
+    return actions.onMount(entryPage)
+
+
+  onLoginSubmit: ({username, password}) =>
+    console.log 'user submit'
+    console.log username, password
+
   render: ->
     {redirectToReferrer, loginRequired, isLoading} = @props.entryPage
     <div className="entry-page">
@@ -21,7 +35,7 @@ class EntryPage extends React.Component
           else
             <Redirect to={{pathname: '/dashboard', state: { user: 'busty'}}} />
         else if loginRequired
-          <LoginModal />
+          <LoginModal onLogin={@onLoginSubmit}/>
 
         else if isLoading
           <div>LOADING</div>

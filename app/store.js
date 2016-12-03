@@ -5,13 +5,18 @@ import LoginModalStore from './components/LoginModal/store';
 
 
 class AppStore {
-  @observable currentUser = '';
-  @observable isAuthenticated = true;
+  @observable user;
+  @observable isAuthenticated = false;
   @observable isActive = false;
   @observable isVisible = false;
+
+  @action
+  updateUser(user = '') {
+    this.user = user;
+  }
+
+
 }
-
-
 
 
 export default function (initialState = {}) {
