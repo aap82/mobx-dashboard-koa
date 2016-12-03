@@ -54,7 +54,7 @@ module.exports =
       {
         test: /\.css$/,
         loaders: ['style', 'css', 'postcss']
-        include: paths.app
+#        include: paths.app
       }
       {
         test: /\.scss$/
